@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import { Card, Typography } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
-import logo from '../public/hmainbg.svg';
+import logo from '../public/homemainbg.png';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -42,7 +42,7 @@ function LandingPage() {
                 //    maxWidth:"50%"
             }}>
                 <div >
-                    <Img alt="complex" src="public\hmainbg.svg" />
+                    <Img alt="complex" src="public\homemainbg.png" />
                 </div>
                 <div style={{
                     paddingTop: "10%",
