@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import ButtonBase from '@mui/material/ButtonBase';
 import Appbar from './Appbar';
+// import logo from '../public/Logo.png';
 
 const Img = styled('img')({
     margin: 'auto',
@@ -42,8 +43,10 @@ function LandingPage() {
                 //    maxWidth:"50%"
             }}>
                 <div >
-                    <Img alt="complex" src="public\homemainbg.png" />
+                    <img alt="complex" src="public\homemainbg.png" />
                 </div>
+
+                {/* <img alt="complex" src="public\Logo.png" /> */}
                 <div style={{
                     paddingTop: "10%",
                     paddingLeft: "10%"
