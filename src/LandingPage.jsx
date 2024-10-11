@@ -43,7 +43,7 @@ function LandingPage() {
                 //    maxWidth:"50%"
             }}>
                
-                <div style={{ marginLeft: 10 }}>
+                <div >
                 <img src={homemainbg} alt="Logo" />;
             </div>
                 <div style={{

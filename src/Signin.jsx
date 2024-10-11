@@ -6,6 +6,7 @@ import { Card, Typography } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
 
+import homemainbg from '../public/homemainbg.png';
 // -------------------------------design-
 
 import logo from '../public/hmainbg.svg';
@@ -113,8 +114,8 @@ return <div style={{ display: "flex", justifyContent: "center" }}>
             </Card>
         </div>
     </div>
-    <div >
-                <Img alt="complex" src="public\hmainbg.svg" />
+    <div>
+                <img src={homemainbg} alt="Logo" />;
             </div>
         </div>
 
