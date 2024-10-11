@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import ButtonBase from '@mui/material/ButtonBase';
 import Appbar from './Appbar';
-import logo from '../public/Logo.png';
+// import logo from '../public/Logo.png';
 
 const Img = styled('img')({
     margin: 'auto',
@@ -42,11 +42,10 @@ function LandingPage() {
                 flexdirection: "row"
                 //    maxWidth:"50%"
             }}>
-                <div >
-                    <img alt="complex" src="public\homemainbg.png" />
-                {/* <img alt="complex" src="public\Logo.png" /> */}
-
-                </div>
+               
+                <div style={{ marginLeft: 10 }}>
+                <img src={homemainbg} alt="Logo" />;
+            </div>
                 <div style={{
                     paddingTop: "10%",
                     paddingLeft: "10%"
