@@ -3,13 +3,13 @@ import TextField from "@mui/material/TextField";
 import { Card, Typography } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
-import logo from '../public/homemainbg.png';
+import homemainbg from '../public/homemainbg.png';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import ButtonBase from '@mui/material/ButtonBase';
 import Appbar from './Appbar';
-// import logo from '../public/Logo.png';
+import logo from '../public/Logo.png';
 
 const Img = styled('img')({
     margin: 'auto',
@@ -44,9 +44,9 @@ function LandingPage() {
             }}>
                 <div >
                     <img alt="complex" src="public\homemainbg.png" />
-                </div>
-
                 {/* <img alt="complex" src="public\Logo.png" /> */}
+
+                </div>
                 <div style={{
                     paddingTop: "10%",
                     paddingLeft: "10%"
