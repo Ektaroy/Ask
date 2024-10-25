@@ -9,7 +9,7 @@ function Course() {
     const [course, setCourse] = useState(null);
     
     useEffect(() => {
-        axios.get("http://localhost:3000/admin/course/" + courseId, {
+        axios.get("https://ask-backend-livid.vercel.app/admin/course/" + courseId, {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
@@ -106,7 +106,7 @@ function UpdateCard({course, setCourse}) {
             <Button
                 variant="contained"
                 onClick={async () => {
-                    axios.put("http://localhost:3000/admin/courses/" + course._id, {
+                    axios.put("https://ask-backend-livid.vercel.app/admin/courses/" + course._id, {
                         title: title,
                         description: description,
                         imageLink: image,
