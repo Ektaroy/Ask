@@ -16,7 +16,7 @@ function Course() {
         function callback1(res) {
             res.json().then(callback2)
         }
-        fetch("http://localhost:3000/admin/courses/", {
+        fetch("https://ask-backend-livid.vercel.app/admin/courses/", {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
@@ -92,7 +92,7 @@ function UpdateCard(props) {
             function callback1(res) {
                 res.json().then(callback2)
             }
-            fetch("http://localhost:3000/admin/courses/" + props.courseId, {
+            fetch("https://ask-backend-livid.vercel.app/admin/courses/" + props.courseId, {
                 method: "PUT",
                 body: JSON.stringify({
                     title: title,
