@@ -8,7 +8,7 @@ const app = express();
 
 app.use(cors(
   {
-    origin: ["https://ask-frontend-phi.vercel.app"],
+    origin: ["https://ask-omega-swart.vercel.app"],
     methods: ["POST","GET"],
     credentials : true
   }
