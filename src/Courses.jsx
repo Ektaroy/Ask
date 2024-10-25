@@ -12,7 +12,7 @@ function Courses() {
         function callback1(res) {
             res.json().then(callback2)
         }
-        fetch("http://localhost:3000/admin/courses/", {
+        fetch("https://ask-backend-livid.vercel.app/admin/courses/", {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
