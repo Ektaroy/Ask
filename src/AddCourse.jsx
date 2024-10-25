@@ -33,7 +33,7 @@ function AddCourse() {
                     size={"large"}
                     variant="contained"
                     onClick={async () => {
-                        await axios.post("http://localhost:3000/admin/courses", {
+                        await axios.post("https://ask-backend-livid.vercel.app/admin/courses", {
                             title: title,
                                 description: description,
                                 imageLink: image,
