@@ -127,7 +127,7 @@ return <div style={{ display: "flex", justifyContent: "center" }}>
                     size={"large"}
                     variant="contained"
                     onClick={async () => {
-                        const response = await axios.post("https://ask-api-rho.vercel.app/admin/signup", {
+                        const response = await axios.post("https://ask-api-kohl.vercel.app/admin/signup", {
                             username: email,
                             name: name,
                             year: year,
