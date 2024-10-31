@@ -14,7 +14,7 @@ function Admins() {
             res.json().then(callback2);
         }
 
-        fetch("https://ask-backend-livid.vercel.app/admin/all/", {
+        fetch("https://ask-backend-livid.vercel.app/admin/", {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
