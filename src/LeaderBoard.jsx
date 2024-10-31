@@ -59,7 +59,7 @@ function LeaderBoard() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {admins.map((row) => (
             <StyledTableRow key={row._id}>
               <StyledTableCell component="th" scope="row">
                 {row.username}
