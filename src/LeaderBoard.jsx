@@ -1,57 +1,78 @@
-import { Button, Card, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function Admins() {
-    const [admins, setAdmins] = useState([]);
-    
-    useEffect(() => {
-        function callback2(data) {
-            setAdmins(data.admins); // Update to set admins data
-        }
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
 
-        function callback1(res) {
-            res.json().then(callback2);
-        }
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
 
-        fetch("https://ask-backend-livid.vercel.app/admin/leaderboard/", {
-            method: "GET",
-            headers: {
-                "Authorization": "Bearer " + localStorage.getItem("token")
-            }
-        }).then(callback1).catch(error => console.error("Error fetching admin data:", error));
-    }, []);
+function LeaderBoard() {
+  const [admins, setAdmins] = useState([]);
+  
+  useEffect(() => {
+    // Fetch all admins data
+    axios.get("https://ask-backend-livid.vercel.app/admin/leaderboard/", {
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((response) => {
+        // Sort the data by 'points' in descending order
+        const sortedData = response.data.sort((a, b) => b.points - a.points);
+        setRows(sortedData);
+      })
+      .catch((error) => console.error("Error fetching admin data:", error));
+  }, []);
 
-    return (
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-            {admins.map(admin => {
-                return <AdminCard admin={admin} key={admin._id} />;
-            })}
-        </div>
-    );
+  return (
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="right">Year</StyledTableCell>
+            <StyledTableCell align="right">Branch</StyledTableCell>
+            <StyledTableCell align="right">Points</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <StyledTableRow key={row._id}>
+              <StyledTableCell component="th" scope="row">
+                {row.name}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.year}</StyledTableCell>
+              <StyledTableCell align="right">{row.branch}</StyledTableCell>
+              <StyledTableCell align="right">{row.points}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
 }
 
-export function AdminCard({ admin }) {
-    const navigate = useNavigate();
-
-    return (
-        <Card style={{
-            margin: 10,
-            width: 300,
-            minHeight: 200,
-            padding: 20
-        }}>
-            <Typography textAlign={"center"} variant="h5">{admin.username}</Typography>
-            <Typography textAlign={"center"} variant="subtitle1">Year: {admin.year}</Typography>
-            <Typography textAlign={"center"} variant="subtitle1">Branch: {admin.branch}</Typography>
-            <Typography textAlign={"center"} variant="subtitle1">Points: {admin.points}</Typography>
-            <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
-                <Button variant="contained" size="large" onClick={() => {
-                    navigate("/admin/" + admin._id); // Navigate to edit the admin
-                }}>Edit</Button>
-            </div>
-        </Card>
-    );
-}
-
-export default Admins;
+export default LeaderBoard;
