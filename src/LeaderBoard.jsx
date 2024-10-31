@@ -62,7 +62,7 @@ function LeaderBoard() {
           {rows.map((row) => (
             <StyledTableRow key={row._id}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {row.username}
               </StyledTableCell>
               <StyledTableCell align="right">{row.year}</StyledTableCell>
               <StyledTableCell align="right">{row.branch}</StyledTableCell>
