@@ -1,99 +1,57 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { Button, Card, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
+function Admins() {
+    const [admins, setAdmins] = useState([]);
+    
+    useEffect(() => {
+        function callback2(data) {
+            setAdmins(data.admins); // Update to set admins data
+        }
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
+        function callback1(res) {
+            res.json().then(callback2);
+        }
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-const LeaderBoard = () => {
+        fetch("https://ask-backend-livid.vercel.app/admin/all/", {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        }).then(callback1).catch(error => console.error("Error fetching admin data:", error));
+    }, []);
 
     return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+            {admins.map(admin => {
+                return <AdminCard admin={admin} key={admin._id} />;
+            })}
+        </div>
+    );
 }
 
+export function AdminCard({ admin }) {
+    const navigate = useNavigate();
 
+    return (
+        <Card style={{
+            margin: 10,
+            width: 300,
+            minHeight: 200,
+            padding: 20
+        }}>
+            <Typography textAlign={"center"} variant="h5">{admin.username}</Typography>
+            <Typography textAlign={"center"} variant="subtitle1">Year: {admin.year}</Typography>
+            <Typography textAlign={"center"} variant="subtitle1">Branch: {admin.branch}</Typography>
+            <Typography textAlign={"center"} variant="subtitle1">Points: {admin.points}</Typography>
+            <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
+                <Button variant="contained" size="large" onClick={() => {
+                    navigate("/admin/" + admin._id); // Navigate to edit the admin
+                }}>Edit</Button>
+            </div>
+        </Card>
+    );
+}
 
-// function between(data, between){
-//     const today = new Date();
-//     const previous = new Date(today);
-//     previous.setDate(previous.getDate() - (between + 1));
-
-//     let filter = data.filter(val => {
-//         let userDate = new Date(val.dt);
-//         if (between == 0) return val;
-//         return previous <= userDate && today >= userDate;
-//     })
-
-//     // // sort with asending order
-//     // return filter.sort((a, b) => {
-//     //     if ( a.score === b.score){
-//     //         return b.score - a.score;
-//     //     } else{
-//     //         return b.score - a.score;
-//     //     }
-//     // })
-
-// }
-
-export default LeaderBoard;
+export default Admins;
