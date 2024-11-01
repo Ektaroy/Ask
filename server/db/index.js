@@ -8,7 +8,10 @@ const userSchema = new mongoose.Schema({
   
 const adminSchema = new mongoose.Schema({
     username: String,
-    password: String
+    password: String,
+    year: Number,
+    branch: String,
+    points: Number
   });
   
 const courseSchema = new mongoose.Schema({
