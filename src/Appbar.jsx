@@ -47,8 +47,12 @@ function Appbar() {
             <div>
 
                 <div style={{ marginLeft: 10 ,height: "3.5rem"}}>
-                <img alt="complex" style={{height: "3.5rem"}} src="public\Logo.png" />
-                    {/* <img src={require('.public/Logo.png')} /> */}
+               
+                    <img src={logo} style={{
+
+height: "3.5rem"
+
+}}></img>
                 </div>
             </div>
 
@@ -138,10 +142,16 @@ marginTop: 15,
             padding: 15,
             zIndex: 1
         }}>
-             <div style={{ marginLeft: 10 ,height: "3.5rem"}}>
-                <img alt="complex" style={{height: "3.5rem"}} src="public\Logo.png" />
-                    {/* <img src={require('.public/Logo.png')} /> */}
-                </div>
+             
+
+<div style={{ marginLeft: 10 ,height: "3.5rem"}}>
+
+    <img src={logo} style={{
+
+height: "3.5rem"
+
+}}></img>
+</div>
       
 
             <div style={{ display: "flex" }}>
