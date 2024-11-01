@@ -32,7 +32,7 @@ export function Course({course}) {
 
     return <Card style={{
         margin: 10,
-        width: 300,
+        width: 1000,
         minHeight: 200,
         padding: 20
     }}>
@@ -40,7 +40,14 @@ export function Course({course}) {
         <Typography textAlign={"center"} variant="subtitle1">{course.description}</Typography>
         <img src={course.imageLink} style={{width: 300}} ></img>
         <div style={{display: "flex", justifyContent: "center", marginTop: 20}}>
-            <Button variant="contained" size="large" onClick={() => {
+        <Button
+                            variant={"contained"}
+                            style={{ marginRight: 60, width: 100, height: 40, boxShadow: 3, 
+                               
+    marginTop: 15,
+    
+                                background: "linear-gradient(to right bottom, #FF69B4, #FFC0CB)" }}
+                      onClick={() => {
                 navigate("/course/" + course._id);
             }}>Edit</Button>
         </div>

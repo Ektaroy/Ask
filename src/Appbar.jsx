@@ -56,6 +56,8 @@ function Appbar() {
                 <div style={{ marginRight: 10, display: "flex" }}>
                     <div style={{ marginRight: 10 }}>
                         <Button
+                          style={{ color: "#4C0AA3", fontWeight: "550", fontSize: "1.05rem" }}
+           
                             onClick={() => {
                                 navigate("/ask")
                             }}
@@ -71,7 +73,15 @@ function Appbar() {
                     </div>
 
                     <Button
-                        variant={"contained"}
+                     
+                     variant={"contained"}
+                     style={{ marginRight: 60, width: 100, height: 40, boxShadow: 3, 
+                        
+marginTop: 15,
+
+                         background: 'linear-gradient(to right bottom, #4C0AA3,#9747FF)' }}
+               
+                     
                         onClick={() => {
                             localStorage.setItem("token", null);
                             window.location = "/";

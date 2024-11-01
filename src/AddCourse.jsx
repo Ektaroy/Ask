@@ -29,9 +29,14 @@ function AddCourse() {
             <Card  style={{width: 100, padding: 20, border: "none", boxShadow: "none",marginTop: 30, height: "50%"}}>
                 
 
-                <Button
-                    size={"large"}
-                    variant="contained"
+            <Button
+                            variant={"contained"}
+                            style={{ width: 100, height: 40, boxShadow: 3, 
+                               
+ 
+    
+                                background: 'linear-gradient(to right bottom, #4C0AA3,#9747FF)' }}
+                      
                     onClick={async () => {
                         await axios.post("https://ask-backend-livid.vercel.app/admin/courses", {
                             title: title,
