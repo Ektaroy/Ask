@@ -46,8 +46,8 @@ function Appbar() {
         }}>
             <div>
 
-                <div style={{ marginLeft: 10 }}>
-                <img alt="complex" src="public\Logo.png" />
+                <div style={{ marginLeft: 10 ,height: "3.5rem"}}>
+                <img alt="complex" style={{height: "3.5rem"}} src="public\Logo.png" />
                     {/* <img src={require('.public/Logo.png')} /> */}
                 </div>
             </div>
@@ -125,13 +125,13 @@ function Appbar() {
         return <div style={{
             display: "flex",
             justifyContent: "space-between",
-            padding: 40,
+            padding: 15,
             zIndex: 1
         }}>
-            <div style={{ marginLeft: 10 }}>
-                <img src={logo} alt="Logo" />;
-            </div>
-
+             <div style={{ marginLeft: 10 ,height: "3.5rem"}}>
+                <img alt="complex" style={{height: "3.5rem"}} src="public\Logo.png" />
+                    {/* <img src={require('.public/Logo.png')} /> */}
+                </div>
       
 
             <div style={{ display: "flex" }}>
@@ -143,7 +143,7 @@ function Appbar() {
 
       
                 <div style={{ marginRight: 30, marginTop: 14 }}>
-                    <Button style={{ color: "#4C0AA3", fontWeight: "600", fontSize: "1.2rem" }}
+                <Button style={{ color: "#4C0AA3", fontWeight: "550", fontSize: "1.05rem" }}
                           onClick={() => {
                             
                         window.location = "/";
@@ -152,7 +152,7 @@ function Appbar() {
                 </div>
 
                 <div style={{ marginRight: 30, marginTop: 14 }}>
-                    <Button style={{ color: "#4C0AA3", fontWeight: "600", fontSize: "1.2rem" }}
+                    <Button style={{ color: "#4C0AA3", fontWeight: "550", fontSize: "1.05rem" }}
                       onClick={() => {
                             
                             navigate("/courses")
@@ -161,7 +161,7 @@ function Appbar() {
                 </div>
 
                 <div style={{ marginRight: 30, marginTop: 14 }}>
-                    <Button style={{ color: "#4C0AA3", fontWeight: "600", fontSize: "1.2rem" }}
+                <Button style={{ color: "#4C0AA3", fontWeight: "550", fontSize: "1.05rem" }}
                     
                     onClick={() => {
                             
@@ -174,7 +174,12 @@ function Appbar() {
                     <div style={{ marginRight: 10 }}>
                         <Button
                             variant={"contained"}
-                            style={{ marginRight: 25, width: 150, height: 50, boxShadow: 3, background: 'linear-gradient(to right bottom, #4C0AA3,#9747FF)' }}
+                            style={{ marginRight: 25, width: 100, height: 40, boxShadow: 3, background: 'linear-gradient(to right bottom, #4C0AA3,#9747FF)'
+                               ,
+                                marginTop: "15px",
+                                marginLeft: "115px"
+                                
+                            }}
                             onClick={() => {
                                 navigate("/signup")
                             }}
@@ -184,7 +189,11 @@ function Appbar() {
                     <div>
                         <Button
                             variant={"contained"}
-                            style={{ marginRight: 25, width: 150, height: 50, boxShadow: 3, background: 'linear-gradient(to right bottom, #4C0AA3,#9747FF)' }}
+                            style={{ marginRight: 60, width: 100, height: 40, boxShadow: 3, 
+                               
+    marginTop: 15,
+    
+                                background: 'linear-gradient(to right bottom, #4C0AA3,#9747FF)' }}
                             onClick={() => {
                                 navigate("/signin")
                             }}

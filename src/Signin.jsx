@@ -58,7 +58,7 @@ return <div style={{ display: "flex", justifyContent: "center" }}>
 <div>
         <div style={{
             paddingTop: 150,
-            paddingRight: 1000,
+            paddingRight: 750,
             marginBottom: 10,
             display: "flex",
             justifyContent: "center"
@@ -115,7 +115,11 @@ return <div style={{ display: "flex", justifyContent: "center" }}>
         </div>
     </div>
     <div>
-                <img src={homemainbg} alt="Logo" />;
+    <img src={homemainbg} style={{
+
+width: "550px"
+
+}}></img>
             </div>
         </div>
 

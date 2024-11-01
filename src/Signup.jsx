@@ -8,8 +8,8 @@ import axios from "axios";
 import homemainbg from '../public/homemainbg.png';
 // -------------------------------design-
 
-import logo from '../public/hmainbg.svg';
-import Logo from '../public/Logo.png';
+import Logo from '../public/hmainbg.svg';
+// import Logo from '../public/Logo.png';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -54,7 +54,11 @@ return <div style={{ display: "flex", justifyContent: "center" }}>
             //    maxWidth:"50%"
         }}>
            <div>
-                <img src={Logo} alt="Logo" />;
+                <img src={Logo} style={{
+
+width: "550px"
+
+}} alt="Logo" />;
             </div>
             <div style={{
                 paddingTop: "10%",

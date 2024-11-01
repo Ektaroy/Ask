@@ -14,8 +14,8 @@ import Appbar from './Appbar';
 const Img = styled('img')({
     margin: 'auto',
     display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
+    maxWidth: '50%',
+    maxHeight: '90%',
 });
 
 
@@ -43,8 +43,16 @@ function LandingPage() {
                 //    maxWidth:"50%"
             }}>
                
-                <div >
-                <img src={homemainbg} alt="Logo" />;
+                <div style={{
+
+   width: "550px"
+
+}}>
+                <img src={homemainbg} style={{
+
+width: "550px"
+
+}} alt="Logo" />;
             </div>
                 <div style={{
                     paddingTop: "10%",
@@ -52,14 +60,23 @@ function LandingPage() {
                 }} >
                     <div
                     >
-                        <Typography style={{ color: "#3C097D", fontSize: "4rem", fontWeight: "600" }} >
+                        <Typography style={{ color: "#3C097D", fontSize: "3rem", fontWeight: "600",
+                             
+                               
+                            
+                              
+                                lineHeight:"1",
+                                paddingTop: "9%"
+                         }} >
                             Welcome to
                             <br />
                             Ask Your Seniors
                         </Typography>
                     </div>
                     <div>
-                        <Typography style={{ color: "#4C0AA3", fontSize: "2rem", fontWeight: "300" }} >
+                        <Typography style={{ color: "#4C0AA3", fontSize: "1.5rem", fontWeight: "300"
+                            
+                         }} >
                             One place for all your queries
                         </Typography>
                     </div>

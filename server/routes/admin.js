@@ -66,6 +66,11 @@ router.post('/signup', (req, res) => {
     const courses = await Course.find({});
     res.json({ courses });
   });
+
+  router.get('/leaderboard', authenticateJwt, async (req, res) => {
+    const courses = await Admin.find({});
+    res.json({ admins });
+  });
   
   router.get('/course/:courseId', authenticateJwt, async (req, res) => {
     const courseId = req.params.courseId;
