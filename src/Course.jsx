@@ -59,7 +59,7 @@ function UpdateCard({course, setCourse}) {
     return <div style={{display: "flex", justifyContent: "center"}}>
     <Card varint={"outlined"} style={{maxWidth: 600, marginTop: 200}}>
         <div style={{padding: 20}}>
-            <Typography style={{marginBottom: 10}}>Update course details</Typography>
+            <Typography style={{marginBottom: 10}}>Update post details</Typography>
             <TextField
                 value={title}
                 style={{marginBottom: 10}}
@@ -127,7 +127,7 @@ function UpdateCard({course, setCourse}) {
                     };
                     setCourse(updatedCourse);
                 }}
-            > Update course</Button>
+            > Update post</Button>
         </div>
     </Card>
 </div>
@@ -149,10 +149,10 @@ function CourseCard(props) {
         <div style={{marginLeft: 10}}>
             <Typography variant="h5">{course.title}</Typography>
             <Typography variant="subtitle2" style={{color: "gray"}}>
-                Price
+               
             </Typography>
             <Typography variant="subtitle1">
-                <b>Rs {course.price} </b>
+                <b> {course.price} </b>
             </Typography>
         </div>
     </Card>

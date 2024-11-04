@@ -69,7 +69,7 @@ return <div style={{ display: "flex", justifyContent: "center" }}>
        
             <Card varint={"outlined"} style={{ width: 400, padding: 20 }}>
             <Typography variant={"h6"} style={{ display: "flex", justifyContent: "center" }}>
-                Welcome to Coursera. Sign up below
+                Welcome to Ask Your Seniors. Sign up below
             </Typography>
                 <TextField
                     onChange={(evant11) => {
